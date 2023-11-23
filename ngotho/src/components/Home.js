@@ -10,7 +10,7 @@ import image1 from '../images/OIP_5.jpg';
 import image2 from '../images/OIP_4.jpg';
 import image3 from '../images/R.png';
 import image4 from '../images/flutter.webp';
-import image5 from '../images/R_2.png'
+import image5 from '../images/R_2.png';
 import service4 from '../images/OIP.jpg';
 import service3 from '../images/OIP_2.jpg';
 import service2 from '../images/OIP_3.jpg';
@@ -20,8 +20,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-/* import DiscordIcon from '@mui/icons-material/Discord';
- */
 
 const slideData = [
   {
@@ -60,9 +58,6 @@ const servicesData = [
 
 const projectsData = [
   { image: project1, description: 'mobile banking application where users can make transactions at the comfort of their homes' },
- /*  { image: require('../images/OIP_2.jpg').default, description: 'Service 2' },
-  { image: require('../images/OIP_3.jpg').default, description: 'Service 3' },
-  { image: require('../images/m.jpg').default, description: 'Service 4' }, */
 ];
 
 const settings = {
@@ -89,7 +84,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
-        style={{ marginBottom: '40px',marginTop:'40px' }}
+        style={{ marginBottom: '40px', marginTop: '40px' }}
       >
         {/* Slider */}
         <Slider {...settings}>
@@ -114,21 +109,17 @@ const Home = () => {
 
         {/* Services Section */}
         <Typography
-  variant="h5"
-  style={{
-    marginBottom: '20px',
-    color: '#EC8F5E',
-    marginTop: '40px',
-    textAlign: 'center', // Center horizontally
-    display: 'flex',
-    justifyContent: 'center', // Center horizontally
-    alignItems: 'center', // Center vertically
-    height: '80px', // Adjust the height as needed
-    fontWeight:"bold",
-  }}
->
-SERVICES
-</Typography>
+          variant="h5"
+          style={{
+            marginBottom: '20px',
+            color: '#EC8F5E',
+            marginTop: '40px',
+            textAlign: 'center',
+            fontWeight: 'bold',
+          }}
+        >
+          SERVICES
+        </Typography>
 
         <Grid container spacing={3}>
           {servicesData.map((service, index) => (
@@ -147,21 +138,17 @@ SERVICES
 
         {/* Projects Section */}
         <Typography
-  variant="h5"
-  style={{
-    marginBottom: '20px',
-    color: '#0766AD',
-    marginTop: '40px',
-    textAlign: 'center', // Center horizontally
-    display: 'flex',
-    justifyContent: 'center', // Center horizontally
-    alignItems: 'center', // Center vertically
-    height: '80px',
-    fontWeight:'bold' // Adjust the height as needed
-  }}
->
-  MY Projects
-</Typography>
+          variant="h5"
+          style={{
+            marginBottom: '20px',
+            color: '#0766AD',
+            marginTop: '40px',
+            textAlign: 'center',
+            fontWeight: 'bold',
+          }}
+        >
+          MY Projects
+        </Typography>
 
         <Grid container spacing={3}>
           {projectsData.map((project, index) => (
@@ -179,24 +166,19 @@ SERVICES
         </Grid>
 
         {/* Work With Us Section */}
-      
-
-        <Paper elevation={3} style={{ padding: '20px', textAlign: 'center', marginTop: '40px', }}>  <Typography
-  variant="h5"
-  style={{
-    marginBottom: '20px',
-    color: '#2B2A4C',
-    marginTop: '4px',
-    textAlign: 'center', // Center horizontally
-    display: 'flex',
-    justifyContent: 'center', // Center horizontally
-    alignItems: 'center', // Center vertically
-    height: '80px', // Adjust the height as needed
-    fontWeight:'bold',
-  }}
->
-WORK WITH ME!
-</Typography>
+        <Paper elevation={3} style={{ padding: '20px', textAlign: 'center', marginTop: '40px', }}>
+          <Typography
+            variant="h5"
+            style={{
+              marginBottom: '20px',
+              color: '#2B2A4C',
+              marginTop: '4px',
+              textAlign: 'center',
+              fontWeight: 'bold',
+            }}
+          >
+            WORK WITH ME!
+          </Typography>
           <Typography variant="body1" style={{ marginBottom: '20px', color: '#34495e' }}>
             If you want to make something amazing with us, let's discuss your ideas!
           </Typography>
@@ -204,63 +186,57 @@ WORK WITH ME!
             Contact Us <EmailIcon style={{ marginLeft: '5px' }} />
           </Button>
         </Paper>
-      </motion.div> 
-{/* footer */}
+      </motion.div>
+      {/* footer */}
       <div style={{ backgroundColor: '#2c3e50', padding: '20px', color: 'white', marginTop: '40px', marginLeft: '-20px', marginRight: '-20px' }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
-          <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>About Us</Typography>
-          <Typography variant="body2">
-          I am a passionate and experienced software engineer with a strong background 
-          in computer science. I have a proven track record of developing and 
-          delivering high-quality software solutions. I am also
-           a cloud engineer with expertise in AWS and Azure. I am looking for a challenging and rewarding opportunit
-          y to apply my skills and experience to make a significant impact.
-          </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>About Us</Typography>
+            <Typography variant="body2">
+              I am a passionate and experienced software engineer with a strong background
+              in computer science. I have a proven track record of developing and
+              delivering high-quality software solutions. I am also
+              a cloud engineer with expertise in AWS and Azure. I am looking for a challenging and rewarding opportunity to apply my skills and experience to make a significant impact.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Contacts</Typography>
+            <Typography variant="body2">
+              Email: keziengotho182@gmail.com
+            </Typography>
+            <Typography variant="body2">
+              Phone: +254 716304517
+            </Typography>
+            <div style={{ marginTop: '10px' }}>
+              <IconButton href="https://github.com/KezzyNgotho/" target="_blank" style={{ color: '#3498db' }}>
+                <GitHubIcon />
+              </IconButton>
+              <IconButton href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" style={{ color: '#3498db' }}>
+                <LinkedInIcon />
+              </IconButton>
+              <IconButton href="https://wa.me/+254716304517" target="_blank" style={{ color: '#3498db' }}>
+                <WhatsAppIcon />
+              </IconButton>
+              <IconButton href="https://www.instagram.com/your-instagram-profile" target="_blank" style={{ color: '#3498db' }}>
+                <InstagramIcon />
+              </IconButton>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Back to Top</Typography>
+            <IconButton onClick={handleBackToTop} style={{ color: '#3498db' }}>
+              <KeyboardArrowUpIcon />
+            </IconButton>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Contacts</Typography>
-          <Typography variant="body2">
-            Email: keziengotho182@gmail.com
-          </Typography>
-          <Typography variant="body2">
-            Phone: +254 716304517
-          </Typography>
-          <div style={{ marginTop: '10px' }}>
-            {/* Add your social icons and links here */}
-            <IconButton href="https://github.com/KezzyNgotho/" target="_blank" style={{ color: '#3498db' }}>
-              <GitHubIcon />
-            </IconButton>
-            <IconButton href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" style={{ color: '#3498db' }}>
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton href="https://wa.me/+254716304517" target="_blank" style={{ color: '#3498db' }}>
-              <WhatsAppIcon />
-            </IconButton>
-            <IconButton href="https://www.instagram.com/your-instagram-profile" target="_blank" style={{ color: '#3498db' }}>
-              <InstagramIcon />
-            </IconButton>
-          {/*   <IconButton href="https://discord.gg/your-discord-invite" target="_blank" style={{ color: '#3498db' }}>
-              <DiscordIcon />
-            </IconButton> */}
-          </div>
-        </Grid>
-      {/*   <Grid item xs={12} md={4}>
-          <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Back to Top</Typography>
-          <IconButton onClick={handleBackToTop} style={{ color: '#3498db' }}>
-            <KeyboardArrowUpIcon />
-          </IconButton>
-        </Grid> */}
-      </Grid>
-      <div style={{ marginTop: '20px', borderTop: '1px solid #34495e', paddingTop: '10px', textAlign: 'center' }}>
-        <Typography variant="body2">&copy; 2023 Keziah Ngotho. All rights reserved.</Typography>
+        <div style={{ marginTop: '20px', borderTop: '1px solid #34495e', paddingTop: '10px', textAlign: 'center' }}>
+          <Typography variant="body2">&copy; 2023 Keziah Ngotho. All rights reserved.</Typography>
+        </div>
       </div>
-    </div>
-     {/* Back to Top Button */}
-     <IconButton onClick={handleBackToTop} style={{ position: 'fixed', bottom: '20px', right: '20px', backgroundColor: '#3498db', color: 'white' }}>
+      {/* Back to Top Button */}
+      <IconButton onClick={handleBackToTop} style={{ position: 'fixed', bottom: '20px', right: '20px', backgroundColor: '#3498db', color: 'white' }}>
         <KeyboardArrowUpIcon />
       </IconButton>
-
     </Container>
   );
 };
