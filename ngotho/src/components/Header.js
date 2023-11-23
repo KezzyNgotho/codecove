@@ -6,8 +6,8 @@ import {
   Button,
   Typography,
   IconButton,
-  Menu,
   MenuItem,
+  Drawer,
   useMediaQuery,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -17,103 +17,106 @@ import WorkIcon from '@mui/icons-material/Work';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const isSmallScreen = useMediaQuery('(max-width:600px)'); // Set your breakpoint here
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const iconStyle = { color: '#000' }; // Set the icon color here
-  const buttonTextStyle = { color: '#000' }; // Set the button text color here
+  const iconStyle = { color: '#000' };
+  const buttonTextStyle = { color: '#000' };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#E0F4FF' }}>
-      <Toolbar style={{ justifyContent: 'space-between' }}>
-        {/* Logo or Label in the Center for Larger Screens */}
-        {!isSmallScreen && (
+    <div>
+      {/* App Bar for Larger Screens */}
+      <AppBar position="static" style={{ backgroundColor: '#E0F4FF' }}>
+        <Toolbar style={{ justifyContent: 'space-between' }}>
+          {/* Logo or Label in the Center for Larger Screens */}
           <Typography variant="h6" component={Link} to="/" style={{ textDecoration: 'none', color: '#000' }}>
             KEZIAH NGOTHO
           </Typography>
-        )}
 
-        {/* Navigation Buttons with Icons */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button
-            component={Link}
-            to="/"
-            color="inherit"
-            style={{ marginLeft: '20px', ...buttonTextStyle }}
-            startIcon={<HomeIcon style={iconStyle} />}
-          >
+          {/* Navigation Buttons with Icons */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {!isSmallScreen && (
+              <>
+                <Button
+                  component={Link}
+                  to="/"
+                  color="inherit"
+                  style={{ marginLeft: '20px', ...buttonTextStyle }}
+                  startIcon={<HomeIcon style={iconStyle} />}
+                >
+                  Home
+                </Button>
+                <Button
+                  component={Link}
+                  to="/about"
+                  color="inherit"
+                  style={{ marginLeft: '20px', ...buttonTextStyle }}
+                  startIcon={<InfoIcon style={iconStyle} />}
+                >
+                  About
+                </Button>
+                <Button
+                  component={Link}
+                  to="/projects"
+                  color="inherit"
+                  style={{ marginLeft: '20px', ...buttonTextStyle }}
+                  startIcon={<WorkIcon style={iconStyle} />}
+                >
+                  Projects
+                </Button>
+                <Button
+                  component={Link}
+                  to="/contact"
+                  color="inherit"
+                  style={{ marginLeft: '20px', ...buttonTextStyle }}
+                  startIcon={<MailOutlineIcon style={iconStyle} />}
+                >
+                  Contact
+                </Button>
+              </>
+            )}
+
+            {/* Toggle Button for Smaller Screens */}
+            {isSmallScreen && (
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="menu"
+                onClick={() => setDrawerOpen(true)}
+                className="small-screens"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+          </div>
+        </Toolbar>
+      </AppBar>
+
+      {/* Drawer for Smaller Screens */}
+      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
+        <div>
+          <IconButton onClick={handleDrawerClose} style={{ alignSelf: 'flex-end' }}>
+            <MenuIcon />
+          </IconButton>
+          <MenuItem component={Link} to="/" onClick={handleDrawerClose}>
             Home
-          </Button>
-          <Button
-            component={Link}
-            to="/about"
-            color="inherit"
-            style={{ marginLeft: '20px', ...buttonTextStyle }}
-            startIcon={<InfoIcon style={iconStyle} />}
-          >
+          </MenuItem>
+          <MenuItem component={Link} to="/about" onClick={handleDrawerClose}>
             About
-          </Button>
-          <Button
-            component={Link}
-            to="/projects"
-            color="inherit"
-            style={{ marginLeft: '20px', ...buttonTextStyle }}
-            startIcon={<WorkIcon style={iconStyle} />}
-          >
+          </MenuItem>
+          <MenuItem component={Link} to="/projects" onClick={handleDrawerClose}>
             Projects
-          </Button>
-          <Button
-            component={Link}
-            to="/contact"
-            color="inherit"
-            style={{ marginLeft: '20px', ...buttonTextStyle }}
-            startIcon={<MailOutlineIcon style={iconStyle} />}
-          >
+          </MenuItem>
+          <MenuItem component={Link} to="/contact" onClick={handleDrawerClose}>
             Contact
-          </Button>
-
-          {/* Toggle Button for Smaller Screens */}
-          {isSmallScreen && (
-            <IconButton
-              edge="end"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleClick}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-
-          {/* Menu for Smaller Screens */}
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/" onClick={handleClose}>
-              Home
-            </MenuItem>
-            <MenuItem component={Link} to="/about" onClick={handleClose}>
-              About
-            </MenuItem>
-            <MenuItem component={Link} to="/projects" onClick={handleClose}>
-              Projects
-            </MenuItem>
-            <MenuItem component={Link} to="/contact" onClick={handleClose}>
-              Contact
-            </MenuItem>
-          </Menu>
+          </MenuItem>
         </div>
-      </Toolbar>
-    </AppBar>
+      </Drawer>
+    </div>
   );
 };
 
