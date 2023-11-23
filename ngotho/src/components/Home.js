@@ -60,6 +60,15 @@ const projectsData = [
   { image: project1, description: 'mobile banking application where users can make transactions at the comfort of their homes' },
 ];
 
+/* const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+}; */
 const settings = {
   dots: true,
   infinite: true,
@@ -68,7 +77,35 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
+
+// ... (your imports)
 
 const Home = () => {
   const handleBackToTop = () => {
@@ -95,12 +132,12 @@ const Home = () => {
                   <img
                     src={slide.image}
                     alt={`Slide ${index + 1}`}
-                    style={{ width: '280px', height: '250px', borderRadius: '10px' }}
+                    style={{ width: '200px', height: '250px', borderRadius: '10px' }}
                   />
                 </div>
                 <div style={{ flex: 1, marginLeft: '10px', flexDirection: 'column' }}>
-                  <Typography variant="h5" style={{ color: '#3498db', marginBottom: '10px' }}>{slide.header}</Typography>
-                  <Typography variant="body1">{slide.description}</Typography>
+                  <Typography variant="h6" style={{ color: '#3498db', marginBottom: '10px', fontSize: '1.1rem' }}>{slide.header}</Typography>
+                  <Typography variant="body2" style={{ fontSize: '1rem' }}>{slide.description}</Typography>
                 </div>
               </Container>
             </div>
@@ -109,13 +146,14 @@ const Home = () => {
 
         {/* Services Section */}
         <Typography
-          variant="h5"
+          variant="h6"
           style={{
             marginBottom: '20px',
             color: '#EC8F5E',
             marginTop: '40px',
             textAlign: 'center',
             fontWeight: 'bold',
+            fontSize: '1.5rem',
           }}
         >
           SERVICES
@@ -130,7 +168,7 @@ const Home = () => {
                   alt={`Service ${index + 1}`}
                   style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '10px' }}
                 />
-                <Typography variant="body1" style={{ marginTop: '10px' }}>{service.description}</Typography>
+                <Typography variant="body2" style={{ marginTop: '10px', fontSize: '0.9rem' }}>{service.description}</Typography>
               </Paper>
             </Grid>
           ))}
@@ -138,13 +176,14 @@ const Home = () => {
 
         {/* Projects Section */}
         <Typography
-          variant="h5"
+          variant="h6"
           style={{
             marginBottom: '20px',
             color: '#0766AD',
             marginTop: '40px',
             textAlign: 'center',
             fontWeight: 'bold',
+            fontSize: '1.5rem',
           }}
         >
           MY Projects
@@ -159,7 +198,7 @@ const Home = () => {
                   alt={`Project ${index + 1}`}
                   style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '10px' }}
                 />
-                <Typography variant="body1" style={{ marginTop: '10px' }}>{project.description}</Typography>
+                <Typography variant="body2" style={{ marginTop: '10px', fontSize: '0.9rem' }}>{project.description}</Typography>
               </Paper>
             </Grid>
           ))}
@@ -168,18 +207,19 @@ const Home = () => {
         {/* Work With Us Section */}
         <Paper elevation={3} style={{ padding: '20px', textAlign: 'center', marginTop: '40px', }}>
           <Typography
-            variant="h5"
+            variant="h6"
             style={{
               marginBottom: '20px',
               color: '#2B2A4C',
               marginTop: '4px',
               textAlign: 'center',
               fontWeight: 'bold',
+              fontSize: '1.5rem',
             }}
           >
             WORK WITH ME!
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: '20px', color: '#34495e' }}>
+          <Typography variant="body2" style={{ marginBottom: '20px', color: '#34495e', fontSize: '1rem' }}>
             If you want to make something amazing with us, let's discuss your ideas!
           </Typography>
           <Button component={motion.a} href="/contact" variant="contained" color="primary">
@@ -191,8 +231,8 @@ const Home = () => {
       <div style={{ backgroundColor: '#2c3e50', padding: '20px', color: 'white', marginTop: '40px', marginLeft: '-20px', marginRight: '-20px' }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>About Us</Typography>
-            <Typography variant="body2">
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db', fontSize: '1.5rem' }}>About Us</Typography>
+            <Typography variant="body2" style={{ fontSize: '1rem' }}>
               I am a passionate and experienced software engineer with a strong background
               in computer science. I have a proven track record of developing and
               delivering high-quality software solutions. I am also
@@ -200,11 +240,11 @@ const Home = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Contacts</Typography>
-            <Typography variant="body2">
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db', fontSize: '1.5rem' }}>Contacts</Typography>
+            <Typography variant="body2" style={{ fontSize: '1rem' }}>
               Email: keziengotho182@gmail.com
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" style={{ fontSize: '1rem' }}>
               Phone: +254 716304517
             </Typography>
             <div style={{ marginTop: '10px' }}>
@@ -223,14 +263,14 @@ const Home = () => {
             </div>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db' }}>Back to Top</Typography>
+            <Typography variant="h6" style={{ marginBottom: '20px', color: '#3498db', fontSize: '1.5rem' }}>Back to Top</Typography>
             <IconButton onClick={handleBackToTop} style={{ color: '#3498db' }}>
               <KeyboardArrowUpIcon />
             </IconButton>
           </Grid>
         </Grid>
         <div style={{ marginTop: '20px', borderTop: '1px solid #34495e', paddingTop: '10px', textAlign: 'center' }}>
-          <Typography variant="body2">&copy; 2023 Keziah Ngotho. All rights reserved.</Typography>
+          <Typography variant="body2" style={{ fontSize: '0.9rem' }}>&copy; 2023 Keziah Ngotho. All rights reserved.</Typography>
         </div>
       </div>
       {/* Back to Top Button */}
